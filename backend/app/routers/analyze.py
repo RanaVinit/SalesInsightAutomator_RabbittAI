@@ -2,7 +2,7 @@
 
 import logging
 
-from fastapi import APIRouter, File, Form, HTTPException, UploadFile
+from fastapi import APIRouter, File, Form, HTTPException, Request, UploadFile
 from pydantic import EmailStr
 from pydantic import ValidationError as PydanticValidationError
 from slowapi import Limiter
@@ -44,7 +44,7 @@ limiter = Limiter(key_func=get_remote_address)
 )
 @limiter.limit(settings.rate_limit)
 async def analyze_sales_data(
-    request,  # Required by slowapi for rate limiting
+    request: Request,  # Required by slowapi for rate limiting
     file: UploadFile = File(
         ..., description="Sales data file (.csv or .xlsx)"
     ),

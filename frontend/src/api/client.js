@@ -23,7 +23,13 @@ export async function analyzeSalesData(file, email) {
   const data = await response.json();
 
   if (!response.ok) {
-    throw new Error(data.detail || "An unexpected error occurred.");
+    const message =
+      typeof data.detail === "string"
+        ? data.detail
+        : Array.isArray(data.detail)
+          ? data.detail.map((e) => e.msg || JSON.stringify(e)).join(", ")
+          : "An unexpected error occurred.";
+    throw new Error(message);
   }
 
   return data;
