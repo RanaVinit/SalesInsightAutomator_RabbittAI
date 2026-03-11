@@ -1,12 +1,12 @@
-# 📊 Sales Insight Automator
+# Sales Insight Automator
 
 > **A secure, containerized application that transforms raw sales data into AI-powered executive summaries — delivered straight to your inbox.**
 
-Built for [Rabbitt AI](https://rabbitt.ai) as a rapid-prototype sprint exercise.
+Built as a rapid-prototype sprint exercise.
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 ┌──────────────────┐     POST /api/analyze     ┌──────────────────┐
@@ -18,8 +18,8 @@ Built for [Rabbitt AI](https://rabbitt.ai) as a rapid-prototype sprint exercise.
                                           ┌──────────────┼──────────────┐
                                           ▼              ▼              ▼
                                     ┌──────────┐  ┌───────────┐  ┌──────────┐
-                                    │  Pandas   │  │  Gemini   │  │  Resend  │
-                                    │  Parser   │  │  LLM API  │  │  Email   │
+                                    │  Pandas  │  │  Gemini   │  │  Resend  │
+                                    │  Parser  │  │  LLM API  │  │  Email   │
                                     └──────────┘  └───────────┘  └──────────┘
 ```
 
@@ -27,7 +27,7 @@ Built for [Rabbitt AI](https://rabbitt.ai) as a rapid-prototype sprint exercise.
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -85,7 +85,7 @@ npm run dev
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 ├── backend/
@@ -122,7 +122,7 @@ npm run dev
 
 ---
 
-## 🔒 Security Overview
+## Security Overview
 
 | Layer              | Implementation                                                  |
 | ------------------ | --------------------------------------------------------------- |
@@ -135,7 +135,7 @@ npm run dev
 
 ---
 
-## 🔄 CI/CD Pipeline
+## CI/CD Pipeline
 
 The GitHub Actions workflow (`.github/workflows/ci.yml`) triggers on **Pull Requests to `main`** and runs:
 
@@ -144,7 +144,7 @@ The GitHub Actions workflow (`.github/workflows/ci.yml`) triggers on **Pull Requ
 
 ---
 
-## 📡 API Documentation
+## API Documentation
 
 Interactive Swagger UI is available at **[`/docs`](http://localhost:8000/docs)** when the backend is running.
 
@@ -171,7 +171,7 @@ Returns `{ "status": "healthy", "service": "Sales Insight Automator API", "versi
 
 ---
 
-## 🧪 Testing
+## Testing
 
 Use the provided `sales_q1_2026.csv` sample file:
 
@@ -183,7 +183,7 @@ Use the provided `sales_q1_2026.csv` sample file:
 
 ---
 
-## 🌐 Deployment
+## Deployment
 
 | Component | Platform | Notes |
 | --- | --- | --- |
@@ -192,6 +192,6 @@ Use the provided `sales_q1_2026.csv` sample file:
 
 ---
 
-## 📄 License
+## License
 
-MIT — Built with ❤️ for Rabbitt AI
+MIT — Built with ❤️

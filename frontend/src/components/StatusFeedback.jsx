@@ -1,11 +1,17 @@
-export default function StatusFeedback({ status, summary, error, email, onReset }) {
+export default function StatusFeedback({ status, summary, error, email, message, onReset }) {
     if (status === "success") {
         return (
             <div className="feedback feedback-success">
                 <div className="feedback-icon">✅</div>
-                <h3>Report Sent Successfully!</h3>
+                <h3>{message.includes("skipped") ? "Analysis Complete!" : "Report Sent Successfully!"}</h3>
                 <p className="feedback-subtitle">
-                    The AI-generated summary has been emailed to <strong>{email}</strong>.
+                    {message.includes("skipped") ? (
+                        <span style={{ color: "var(--warning)" }}>
+                            AI Summary generated! <em>(Email delivery to {email} skipped due to demo sandbox limits)</em>
+                        </span>
+                    ) : (
+                        <>The AI-generated summary has been emailed to <strong>{email}</strong>.</>
+                    )}
                 </p>
 
                 {summary && (

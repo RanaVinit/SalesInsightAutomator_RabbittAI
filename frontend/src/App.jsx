@@ -8,6 +8,7 @@ export default function App() {
   const [summary, setSummary] = useState("");
   const [error, setError] = useState("");
   const [email, setEmail] = useState("");
+  const [responseMessage, setResponseMessage] = useState("");
 
   const handleSubmit = async (file, recipientEmail) => {
     setStatus("loading");
@@ -18,6 +19,7 @@ export default function App() {
     try {
       const result = await analyzeSalesData(file, recipientEmail);
       setSummary(result.summary);
+      setResponseMessage(result.message);
       setStatus("success");
     } catch (err) {
       setError(err.message || "An unexpected error occurred.");
@@ -28,6 +30,7 @@ export default function App() {
   const handleReset = () => {
     setStatus("idle");
     setSummary("");
+    setResponseMessage("");
     setError("");
     setEmail("");
   };
@@ -71,6 +74,7 @@ export default function App() {
             <StatusFeedback
               status={status}
               summary={summary}
+              message={responseMessage}
               error={error}
               email={email}
               onReset={handleReset}
@@ -81,8 +85,7 @@ export default function App() {
         {/* Footer */}
         <footer className="footer">
           <p>
-            Powered by <strong>Google Gemini</strong> · Built for{" "}
-            <strong>Rabbitt AI</strong>
+            Powered by <strong>Google Gemini</strong>
           </p>
         </footer>
       </main>
