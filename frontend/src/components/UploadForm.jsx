@@ -137,7 +137,12 @@ export default function UploadForm({ onSubmit, isLoading }) {
                     onChange={(e) => setEmail(e.target.value)}
                     required
                     disabled={isLoading}
+                    className={emailError ? "error" : ""}
                 />
+                {emailError && <span className="error-message">{emailError}</span>}
+                <span className="sandbox-note">
+                    ⚠️ Note: Demo is sandboxed. You must use this email: "ranavinit1307@gmail.com".
+                </span>
             </div>
 
             {/* Submit */}
